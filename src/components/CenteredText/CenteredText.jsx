@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 const CenteredText = ({ text, linkText }) => {
   return (
@@ -9,8 +9,8 @@ const CenteredText = ({ text, linkText }) => {
           <h3 className="tex-upperCase">{text}</h3>
 
           {linkText ? (
-            <a className="underline text-dark" href="#">
-              {linkText} <FontAwesomeIcon icon={faArrowRight} />
+            <a className="underline h6 text-dark" href="/">
+              {linkText} <FontAwesomeIcon icon={faPlay} />
             </a>
           ) : (
             ""

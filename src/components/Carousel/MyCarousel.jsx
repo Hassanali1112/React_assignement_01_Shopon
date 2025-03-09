@@ -1,29 +1,12 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
+import { Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import "react-multi-carousel/lib/styles.css";
 import "./styles.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-
-
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 768 },
-    items: 3,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 767, min: 464 },
-    items: 2,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-};
 // const sliderImageUrl = [
 //   {
 //     name: "G-Shock Casio 08",
@@ -96,38 +79,60 @@ const responsive = {
 //     img: "https://iwc.com.pk/wp-content/uploads/2023/03/GA-2100FR-5ADR.jpg",
 //   },
 // ];
-const MyCarousel = ({data}) => {
-   return (
-     <div
-       className="parent container p-0"
-       style={{ backgroundColor: "#ffffff" }}
-     >
-       <Carousel
-         responsive={responsive}
-         autoPlay={true}
-         swipeable={true}
-         draggable={true}
-         autoPlaySpeed={800} 
-         transitionDuration={800}
-         
-         infinite={true}
-         partialVisible={false}
-         dotListClass="custom-dot-list-style"
-       >
-         {data.map((item, index) => {
-           return (
-             <Card className="slider py-2" key={index} >
-               <Card.Img variant="top" src={item.img} />
-               <Card.Body>
-                 <Card.Title>{item.name}</Card.Title>
-                 <Card.Text style={{fontSize : ".85rem"}} >{item.fullName}</Card.Text>
-                 <Button variant="success">{item.price}</Button>
-               </Card.Body>
-             </Card>
-           );
-         })}
-       </Carousel>
-     </div>
-   );
+const MyCarousel = ({ data, lg,md,sm }) => {
+  // console.log(itemsOnScreen);
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: lg,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: md,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 767, min: 464 },
+      items: sm,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+  };
+  console.log(responsive);
+  console.log(data);
+  return (
+    <div
+      className="parent container p-0 my-4"
+      style={{ backgroundColor: "#ffffff" }}
+    >
+      {<Row></Row>}
+      <Carousel
+        responsive={responsive}
+        autoPlay={true}
+        swipeable={true}
+        draggable={true}
+        autoPlaySpeed={800}
+        transitionDuration={800}
+        infinite={true}
+        partialVisible={false}
+        dotListClass="custom-dot-list-style"
+      >
+        {data.map((item, index) => {
+          return (
+            <Card className="slider py-2 border " key={index}>
+              <Card.Img variant="top" src={item.img} />
+              <Card.Body>
+                <Card.Title>{item.name}</Card.Title>
+                <Card.Text style={{ fontSize: ".85rem" }}>
+                  {item.fullName}
+                </Card.Text>
+                <Button variant="success">{item.price}</Button>
+              </Card.Body>
+            </Card>
+          );
+        })}
+      </Carousel>
+    </div>
+  );
 };
 export default MyCarousel;

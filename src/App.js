@@ -32,7 +32,13 @@ function App() {
     {
       url: "https://shopon.pk/images/promo/250/xbox_Gift_cards__3_.png",
     },
-  ];
+  ]
+  
+  const itemsOnScreen = {
+    desktop : 4,
+    tablet : 3,
+    mobile : 1,
+  }
 
   const sliderImageUrl1 = [
     {
@@ -236,7 +242,7 @@ function App() {
       <Slider slider={slider} />
       <Brands />
       <Divider />
-      <MyCarousel data={sliderImageUrl1} />
+      <MyCarousel data={sliderImageUrl1} lg={4} md={3} sm={1} />
       <CenteredText text={"TRENDING GIFT CARDS"} linkText={"VIEW ALL"} />
 
       {/* brand cards */}
@@ -244,7 +250,6 @@ function App() {
         <div class="container">
           <Row className="p-3 justify-content-between row-gap-3">
             {brandImg.map((item, index) => {
-              console.log(item.url);
               return (
                 <Col
                   md={3}
@@ -281,8 +286,9 @@ function App() {
       }
       <CenteredText text={"MOBILE & ACCESSORIES"} linkText={"VIEW ALL"} />
 
+      {/* assessories text */}
       {
-        <div class="container my-5">
+        <div class="container  my-5">
           <Row className=" justify-content-center justify-content-lg-between">
             <Col className="py-4 border ">
               <BrandCard title={""} imgUrl={""} />
@@ -290,6 +296,28 @@ function App() {
           </Row>
         </div>
       }
+
+      {/* assessories cards */}
+
+      {
+        <div class="container">
+          <Row className=" justify-content-center justify-content-lg-between">
+            {gameCards.map((item, index) => {
+              return (
+                <Col
+                  md={2}
+                  sm={12}
+                  key={index}
+                  className="p-0 d-flex justify-content-center "
+                >
+                  <BrandCard title={item.title} imgUrl={item.url} />
+                </Col>
+              );
+            })}
+          </Row>
+        </div>
+      }
+
       {/* electronics */}
       {
         <div class="container my-3">
@@ -330,7 +358,6 @@ function App() {
         <div class="container">
           <Row className="p-3 justify-content-between row-gap-3">
             {children.map((item, index) => {
-              console.log(item.url);
               return (
                 <Col
                   md={3}
@@ -383,8 +410,8 @@ function App() {
         </div>
       }
 
-      <MyCarousel data={sliderImageUrl2} />
-      <MyCarousel data={sliderImageUrl2} />
+      <MyCarousel data={sliderImageUrl2} lg={5} md={3} sm={1} />
+      <MyCarousel data={sliderImageUrl2} lg={5} md={3} sm={1} />
       <CenteredText text={"DEALS OF THE WEEK"} linkText={""} />
     </>
   );

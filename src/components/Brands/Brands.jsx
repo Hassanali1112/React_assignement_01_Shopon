@@ -56,7 +56,6 @@ const Brands = () => {
         {
           <Row className="p-4 px-5 pb-0 justify-content-between row-gap-3">
             {cardItems.map((item, index) => {
-              console.log(item.imgUrl);
               return (
                 <Col md={1}  key={index} className="p-0 d-flex justify-content-center col_width">
                   <BrandCard title={item.title} imgUrl={item.imgUrl} />

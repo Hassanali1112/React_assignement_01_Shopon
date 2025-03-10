@@ -105,7 +105,7 @@ const MyCarousel = ({ data, lg,md,sm }) => {
       className="parent container p-0 my-4"
       style={{ backgroundColor: "#ffffff" }}
     >
-      {<Row></Row>}
+    
       <Carousel
         responsive={responsive}
         autoPlay={true}
@@ -119,14 +119,14 @@ const MyCarousel = ({ data, lg,md,sm }) => {
       >
         {data.map((item, index) => {
           return (
-            <Card className="slider py-2 border " key={index}>
-              <Card.Img variant="top" src={item.img} />
-              <Card.Body>
+            <Card className="slider py-1" key={index}>
+              <Card.Img variant="top" className="img-fluid" src={item.img} />
+              <Card.Body className="px-2">
                 <Card.Title>{item.name}</Card.Title>
-                <Card.Text style={{ fontSize: ".85rem" }}>
+                <Card.Text style={{ fontSize: ".72rem" }}>
                   {item.fullName}
                 </Card.Text>
-                <Button variant="success">{item.price}</Button>
+                <Button variant="success ">{item.price}</Button>
               </Card.Body>
             </Card>
           );

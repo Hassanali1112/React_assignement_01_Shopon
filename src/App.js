@@ -11,6 +11,8 @@ import { Col, Row } from "react-bootstrap";
 import Footer from "./components/Footer/Footer";
 import Typography  from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import MultiSlider from "./components/NewCard/NewCard";
+import NewCards from "./components/NewCard/NewCard";
 
 
 function App() {
@@ -98,6 +100,57 @@ function App() {
       category: "Women's Watch",
       color: ["golden", "silver"],
       img: "https://shopon.pk/images/thumbnails/270/270/detailed/197/download_-_2024-05-27T185348.480.jpeg",
+    },
+  ];
+
+  const sliderMobiles1 = [
+    {
+      name: "Oppo Reno 11 5G",
+      price: "RS.96999",
+      fullName: "Oppo Reno 11 5G",
+      category: "Women's Watch",
+      color: ["golden", "silver"],
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/212/oppo-reno-12f-5g-pakistan-priceoye-i5ee8.jpg",
+    },
+    {
+      name: "G-Shock Casio 08",
+      price: "RS.600",
+      fullName: "Oppo Reno 2F (128GB 8GB) Green - Official Warranty",
+      category: "Women's Watch",
+      color: ["golden", "silver"],
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/40/funda_carbon_ultra_oppo_reno_2_01_negro_l.jpg",
+    },
+    {
+      name: "G-Shock Casio 08",
+      price: "RS.400",
+      fullName: "Oppo A9 2020 (128GB 8GB) Green - Official Warranty",
+      category: "Women's Watch",
+      color: ["golden", "silver"],
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/40/OppoA92020-b.jpg",
+    },
+    {
+      name: "G-Shock Casio 08",
+      price: "RS.500",
+      fullName: "Apple iPhone 14 Pre Order 14 128 Non PTA",
+      category: "Women's Watch",
+      color: ["golden", "silver"],
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/117/Apple-iPhone-14-Plus-6.jpg",
+    },
+    {
+      name: "G-Shock Casio 08",
+      price: "RS.200",
+      fullName: "Apple iPhone 14 Plus Pre Order",
+      category: "Women's Watch",
+      color: ["golden", "silver"],
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/117/Apple-iPhone-14-Plus.jpg",
+    },
+    {
+      name: "G-Shock Casio 08",
+      price: "RS.600",
+      fullName: "Apple iPhone 14 Mini Pre Order",
+      category: "Women's Watch",
+      color: ["golden", "silver"],
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/117/iPhone-14-Mini.jpg",
     },
   ];
 
@@ -429,20 +482,20 @@ function App() {
         </Typography>
       </Container>
       <Divider />
-      <MyCarousel data={sliderImageUrl1} lg={4} md={3} sm={1} />
+      <MyCarousel data={sliderImageUrl1} lg={4} md={3} sm={1} bg={"bg"} />
       <CenteredText text={"TRENDING GIFT CARDS"} linkText={"VIEW ALL"} />
 
       {/* brand cards */}
       {
         <div class="container">
-          <Row className="p-3 justify-content-between row-gap-3">
+          <Row className="row-gap-3 justify-content-between p-3">
             {brandImg.map((item, index) => {
               return (
                 <Col
                   md={3}
                   sm={6}
                   key={index}
-                  className="p-0 d-flex justify-content-center align-items-center pb-0"
+                  className="d-flex align-items-center justify-content-center p-0 pb-0"
                 >
                   <BrandCard title={item.title} imgUrl={item.url} />
                 </Col>
@@ -455,14 +508,14 @@ function App() {
       {/* game cards */}
       {
         <div class="container">
-          <Row className=" justify-content-center justify-content-lg-between">
+          <Row className="justify-content-center justify-content-lg-between">
             {gameCards.map((item, index) => {
               return (
                 <Col
                   md={6}
                   sm={12}
                   key={index}
-                  className="p-0 d-flex justify-content-center "
+                  className="d-flex justify-content-center p-0"
                 >
                   <BrandCard title={item.title} imgUrl={item.url} />
                 </Col>
@@ -473,32 +526,16 @@ function App() {
       }
       <CenteredText text={"MOBILE & ACCESSORIES"} linkText={"VIEW ALL"} />
 
-      {/* assessories cards */}
+      <MyCarousel data={sliderMobiles1} lg={5} md={3} sm={1} bg={""} />
+      <MyCarousel data={sliderMobiles1} lg={5} md={3} sm={1} />
 
-      {/* {
-        <div class="container">
-          <Row className=" justify-content-center justify-content-lg-between">
-            {gameCards.map((item, index) => {
-              return (
-                <Col
-                  md={2}
-                  sm={12}
-                  key={index}
-                  className="p-0 d-flex justify-content-center "
-                >
-                  <BrandCard title={item.title} imgUrl={item.url} />
-                </Col>
-              );
-            })}
-          </Row>
-        </div>
-      } */}
+    
 
       {/* electronics */}
       {
         <div class="container my-3">
-          <Row >
-            <Col className=" electronics p-0 ">
+          <Row>
+            <Col className="p-0 electronics">
               <BrandCard
                 title={""}
                 imgUrl={
@@ -511,13 +548,53 @@ function App() {
       }
 
       <CenteredText text={"ELECTRONICS"} linkText={""} />
+
+      {
+        <div class="container p-4">
+          <Row className="row-gap-3 justify-content-start p-3">
+            {homeAndDecor.map((item, index) => {
+              return (
+                <Col
+                  lg={2}
+                  md={3}
+                  sm={6}
+                  key={index}
+                  className="d-flex align-items-center justify-content-center p-0 pb-0"
+                >
+                  <NewCards title={item.name} imgUrl={item.img} price={item.price} index={index} />
+                </Col>
+              );
+            })}
+          </Row>
+        </div>
+      }
+      {
+        <div class="container p-4">
+          <Row className="row-gap-3 justify-content-start p-3">
+            {homeAndDecor.map((item, index) => {
+              return (
+                <Col
+                  lg={2}
+                  md={3}
+                  sm={6}
+                  key={index}
+                  className="d-flex align-items-center justify-content-center p-0 pb-0"
+                >
+                  <BrandCard title={item.name} imgUrl={item.img} />
+                </Col>
+              );
+            })}
+          </Row>
+        </div>
+      }
+
       <CenteredText text={"FASHION"} linkText={"VIEW ALL"} />
 
       {/* fashion banner */}
       {
         <div class="container my-3">
           <Row>
-            <Col className=" electronics p-0 ">
+            <Col className="p-0 electronics">
               <BrandCard
                 title={""}
                 imgUrl={
@@ -532,14 +609,14 @@ function App() {
       {/* children items cards */}
       {
         <div class="container">
-          <Row className="p-3 justify-content-between row-gap-3">
+          <Row className="row-gap-3 justify-content-between p-3">
             {children.map((item, index) => {
               return (
                 <Col
                   md={3}
                   sm={6}
                   key={index}
-                  className="p-0 d-flex justify-content-center align-items-center pb-0"
+                  className="d-flex align-items-center justify-content-center p-0 pb-0"
                 >
                   <BrandCard title={item.title} imgUrl={item.url} />
                 </Col>
@@ -551,7 +628,7 @@ function App() {
       {/* popular video game cards */}
       {
         <div class="container">
-          <Row className="p-3 justify-content-between row-gap-3">
+          <Row className="row-gap-3 justify-content-between p-3">
             {popularGameCards.map((item, index) => {
               // console.log(item.url);
               return (
@@ -560,7 +637,7 @@ function App() {
                   lg={2}
                   sm={6}
                   key={index}
-                  className="p-0 d-flex justify-content-center align-items-center pb-0"
+                  className="d-flex align-items-center justify-content-center p-0 pb-0"
                 >
                   <BrandCard title={item.title} imgUrl={item.url} />
                 </Col>
@@ -574,7 +651,7 @@ function App() {
       {
         <div class="container my-3">
           <Row>
-            <Col className=" electronics p-0 ">
+            <Col className="p-0 electronics">
               <BrandCard
                 title={""}
                 imgUrl={
@@ -597,7 +674,7 @@ function App() {
       {
         <div class="container my-3">
           <Row>
-            <Col className=" electronics p-0 ">
+            <Col className="p-0 electronics">
               <BrandCard
                 title={""}
                 imgUrl={"https://shopon.pk/images/promo/183/decore-roome.jpg"}
@@ -612,7 +689,7 @@ function App() {
       {/* children items cards */}
       {
         <div class="container p-4">
-          <Row className="p-3 justify-content-start row-gap-3">
+          <Row className="row-gap-3 justify-content-start p-3">
             {homeAndDecor.map((item, index) => {
               return (
                 <Col
@@ -620,7 +697,7 @@ function App() {
                   md={3}
                   sm={6}
                   key={index}
-                  className="p-0 d-flex justify-content-center align-items-center pb-0"
+                  className="d-flex align-items-center justify-content-center p-0 pb-0"
                 >
                   <BrandCard title={item.name} imgUrl={item.img} />
                 </Col>

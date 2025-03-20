@@ -8,7 +8,6 @@ import Card from "react-bootstrap/Card";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 
-
 // const sliderImageUrl = [
 //   {
 //     name: "G-Shock Casio 08",
@@ -81,7 +80,7 @@ import Typography from "@mui/material/Typography";
 //     img: "https://iwc.com.pk/wp-content/uploads/2023/03/GA-2100FR-5ADR.jpg",
 //   },
 // ];
-const MyCarousel = ({ data, lg,md,sm }) => {
+const MyCarousel = ({ data, lg, md, sm ,bg }) => {
   // console.log(itemsOnScreen);
   const responsive = {
     desktop: {
@@ -102,10 +101,17 @@ const MyCarousel = ({ data, lg,md,sm }) => {
   };
   return (
     <div
-      className="parent container p-0"
-      style={{ backgroundColor: "#ffffff" }}
+      className="container parent mb-3"
+      style={
+        bg
+          ? { backgroundColor: "#fff", padding: "none" }
+          : {
+              backgroundColor: "#F5F5F5",
+              padding: "1rem",
+              border: "1px solid rgb(218, 218, 218)",
+            }
+      }
     >
-    
       <Carousel
         responsive={responsive}
         autoPlay={true}
@@ -119,18 +125,29 @@ const MyCarousel = ({ data, lg,md,sm }) => {
       >
         {data.map((item, index) => {
           return (
-            <Card className="slider py-1" key={index}>
+            <Card className="mx-2 py-1 slider" key={index}>
               <Card.Img variant="top" className="img-fluid" src={item.img} />
               <Card.Body className="px-2">
-                <Rating name="simple-controlled" value={0} size="small" />
+                <Rating
+                  name="simple-controlled"
+                  value={0}
+                  size="small"
+                  readOnly
+                />
 
                 {/* <Card.Title style={{ fontSize: ".9rem", fontWeight : 400 }}>
                   {item.name}
                 </Card.Title> */}
-                <Card.Text style={{ fontSize: ".72rem" }}>
+                <Card.Text style={{ fontSize: ".68rem" }}>
                   {item.fullName}
                 </Card.Text>
-                <Typography variant="h6" component={"p"} sx={{color : "#FCAE33"}}>{item.price}</Typography>
+                <Typography
+                  variant="span"
+                  component={"p"}
+                  sx={{ color: "#FCAE33" }}
+                >
+                  {item.price}
+                </Typography>
               </Card.Body>
             </Card>
           );

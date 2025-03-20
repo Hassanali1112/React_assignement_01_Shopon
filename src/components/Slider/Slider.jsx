@@ -1,7 +1,7 @@
 import Carousel from "react-bootstrap/Carousel";
 import "./Carousel.css";
-import { Row } from "react-bootstrap";
-import { width } from "@fortawesome/free-solid-svg-icons/fa0";
+// import { Row } from "react-bootstrap";
+// import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
 function Slider({ slider }) {
   return (

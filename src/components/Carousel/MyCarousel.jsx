@@ -1,11 +1,13 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
-import { Row } from "react-bootstrap";
-import { Col } from "react-bootstrap";
+// import { Row } from "react-bootstrap";
+// import { Col } from "react-bootstrap";
 import "react-multi-carousel/lib/styles.css";
 import "./styles.css";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Rating from "@mui/material/Rating";
+import Typography from "@mui/material/Typography";
+
 
 // const sliderImageUrl = [
 //   {
@@ -98,11 +100,9 @@ const MyCarousel = ({ data, lg,md,sm }) => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
-  console.log(responsive);
-  console.log(data);
   return (
     <div
-      className="parent container p-0 my-4"
+      className="parent container p-0"
       style={{ backgroundColor: "#ffffff" }}
     >
     
@@ -111,8 +111,8 @@ const MyCarousel = ({ data, lg,md,sm }) => {
         autoPlay={true}
         swipeable={true}
         draggable={true}
-        autoPlaySpeed={800}
-        transitionDuration={800}
+        autoPlaySpeed={600}
+        transitionDuration={900}
         infinite={true}
         partialVisible={false}
         dotListClass="custom-dot-list-style"
@@ -122,11 +122,15 @@ const MyCarousel = ({ data, lg,md,sm }) => {
             <Card className="slider py-1" key={index}>
               <Card.Img variant="top" className="img-fluid" src={item.img} />
               <Card.Body className="px-2">
-                <Card.Title>{item.name}</Card.Title>
+                <Rating name="simple-controlled" value={0} size="small" />
+
+                {/* <Card.Title style={{ fontSize: ".9rem", fontWeight : 400 }}>
+                  {item.name}
+                </Card.Title> */}
                 <Card.Text style={{ fontSize: ".72rem" }}>
                   {item.fullName}
                 </Card.Text>
-                <Button variant="success ">{item.price}</Button>
+                <Typography variant="h6" component={"p"} sx={{color : "#FCAE33"}}>{item.price}</Typography>
               </Card.Body>
             </Card>
           );

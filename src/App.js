@@ -8,7 +8,10 @@ import Divider from "./components/Divider/Divider";
 import Slider from "./components/Slider/Slider";
 import CenteredText from "./components/CenteredText/CenteredText";
 import { Col, Row } from "react-bootstrap";
-import Footer from "./Footer/Footer";
+import Footer from "./components/Footer/Footer";
+import Typography  from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+
 
 function App() {
   const slider = [
@@ -35,82 +38,66 @@ function App() {
     },
   ];
 
-  const itemsOnScreen = {
-    desktop: 4,
-    tablet: 3,
-    mobile: 1,
-  };
+  // const itemsOnScreen = {
+  //   desktop: 4,
+  //   tablet: 3,
+  //   mobile: 1,
+  // };
 
   const sliderImageUrl1 = [
     {
       name: "G-Shock Casio 08",
-      price: "$600",
-      caption:
-        "The Oyster Perpetual Explorer in Oystersteel features a distinctive black dial with characteristic 3, 6, and 9 numerals with a Chromalight display. Its highly legible hour markers, extremely resistant Oystersteel and waterproofness have made it a tool watch for exploration.",
-
+      price: "RS.700",
       fullName:
         "Casio Analog-Digital Black Dial Women’s Watch-BA-110RG-1ADR (BX157)",
       category: "Women's Watch",
       color: ["golden", "silver"],
-      Tags: "126231-62801, Automatic, certified pre-owned, Datejust 36, Datejust 36 Men, Rolex, watch",
-      img: "https://iwc.com.pk/wp-content/uploads/2020/12/BA-110RG-1ADR-1.jpg",
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/221/swl-28-scenes-21.jpg",
     },
     {
-      name: "G-shock Casio 09 ",
-      price: "$600",
-      caption:
-        "The Oyster Perpetual Explorer in Oystersteel features a distinctive black dial with characteristic 3, 6, and 9 numerals with a Chromalight display. Its highly legible hour markers, extremely resistant Oystersteel and waterproofness have made it a tool watch for exploration.",
-
-      fullName: "G-shock Casio 09 Champagne Index - 126231-62801",
-      category: "Men's Watch",
+      name: "G-Shock Casio 08",
+      price: "RS.600",
+      fullName:
+        "Casio Analog-Digital Black Dial Women’s Watch-BA-110RG-1ADR (BX157)",
+      category: "Women's Watch",
       color: ["golden", "silver"],
-      Tags: "126231-62801, Automatic, certified pre-owned, Datejust 36, Datejust 36 Men, Rolex, watch",
-      img: "https://iwc.com.pk/wp-content/uploads/2022/01/GM-S2100-3ADR-1.jpg",
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/251/images_pxkt-00.jpg",
     },
     {
-      name: "G-shock Casio 10 ",
-      price: "$600",
-      fullName: "G-shock Casio 10 Champagne Index - 126231-62801",
-      category: "Men's Watch",
+      name: "G-Shock Casio 08",
+      price: "RS.400",
+      fullName:
+        "Casio Analog-Digital Black Dial Women’s Watch-BA-110RG-1ADR (BX157)",
+      category: "Women's Watch",
       color: ["golden", "silver"],
-      Tags: "126231-62801, Automatic, certified pre-owned, Datejust 36, Datejust 36 Men, Rolex, watch",
-      img: "https://iwc.com.pk/wp-content/uploads/2023/03/GMA-S2100-1ADR.jpg",
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/221/SWL-24NewMain-396226_26edac8b-87fb-410d-b8b4-2b5089f74860.jpg",
     },
     {
-      name: "G-shock Casio 11 ",
-      price: "$600",
-      caption:
-        "The Oyster Perpetual Explorer in Oystersteel features a distinctive black dial with characteristic 3, 6, and 9 numerals with a Chromalight display. Its highly legible hour markers, extremely resistant Oystersteel and waterproofness have made it a tool watch for exploration.",
-
-      fullName: "G-shock Casio 10 Champagne Index - 126231-62801",
-      category: "Men's Watch",
+      name: "G-Shock Casio 08",
+      price: "RS.500",
+      fullName:
+        "Casio Analog-Digital Black Dial Women’s Watch-BA-110RG-1ADR (BX157)",
+      category: "Women's Watch",
       color: ["golden", "silver"],
-      Tags: "126231-62801, Automatic, certified pre-owned, Datejust 36, Datejust 36 Men, Rolex, watch",
-      img: "https://iwc.com.pk/wp-content/uploads/2023/03/GA-2000S-1ADR.jpg",
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/196/download_05rq-1g.jpg",
     },
     {
-      name: "G-shock Casio 12 ",
-      price: "$600",
-      caption:
-        "The Oyster Perpetual Explorer in Oystersteel features a distinctive black dial with characteristic 3, 6, and 9 numerals with a Chromalight display. Its highly legible hour markers, extremely resistant Oystersteel and waterproofness have made it a tool watch for exploration.",
-
-      fullName: "G-shock Casio 10 Champagne Index - 126231-62801",
-      category: "Men's Watch",
+      name: "G-Shock Casio 08",
+      price: "RS.200",
+      fullName:
+        "Casio Analog-Digital Black Dial Women’s Watch-BA-110RG-1ADR (BX157)",
+      category: "Women's Watch",
       color: ["golden", "silver"],
-      Tags: "126231-62801, Automatic, certified pre-owned, Datejust 36, Datejust 36 Men, Rolex, watch",
-      img: "https://iwc.com.pk/wp-content/uploads/2023/03/GA-2100-1A3DR.jpg",
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/221/swl-38-1-1024x688.jpg",
     },
     {
-      name: "G-shock Casio 13 ",
-      price: "$600",
-      caption:
-        "The Oyster Perpetual Explorer in Oystersteel features a distinctive black dial with characteristic 3, 6, and 9 numerals with a Chromalight display. Its highly legible hour markers, extremely resistant Oystersteel and waterproofness have made it a tool watch for exploration.",
-
-      fullName: "G-shock Casio 10 Champagne Index - 126231-62801",
-      category: "Men's Watch",
+      name: "G-Shock Casio 08",
+      price: "RS.600",
+      fullName:
+        "Casio Analog-Digital Black Dial Women’s Watch-BA-110RG-1ADR (BX157)",
+      category: "Women's Watch",
       color: ["golden", "silver"],
-      Tags: "126231-62801, Automatic, certified pre-owned, Datejust 36, Datejust 36 Men, Rolex, watch",
-      img: "https://iwc.com.pk/wp-content/uploads/2023/03/GA-2100FR-5ADR.jpg",
+      img: "https://shopon.pk/images/thumbnails/270/270/detailed/197/download_-_2024-05-27T185348.480.jpeg",
     },
   ];
 
@@ -436,6 +423,11 @@ function App() {
       <MyNavbar />
       <Slider slider={slider} />
       <Brands />
+      <Container>
+        <Typography sx={{ color: "#808080" }} variant="h6">
+          FLASH SALE
+        </Typography>
+      </Container>
       <Divider />
       <MyCarousel data={sliderImageUrl1} lg={4} md={3} sm={1} />
       <CenteredText text={"TRENDING GIFT CARDS"} linkText={"VIEW ALL"} />
@@ -481,17 +473,6 @@ function App() {
       }
       <CenteredText text={"MOBILE & ACCESSORIES"} linkText={"VIEW ALL"} />
 
-      {/* assessories text */}
-      {
-        <div class="container  my-5">
-          <Row className=" justify-content-center justify-content-lg-between">
-            <Col className="py-4 border ">
-              <BrandCard title={""} imgUrl={""} />
-            </Col>
-          </Row>
-        </div>
-      }
-
       {/* assessories cards */}
 
       {/* {
@@ -516,7 +497,7 @@ function App() {
       {/* electronics */}
       {
         <div class="container my-3">
-          <Row>
+          <Row >
             <Col className=" electronics p-0 ">
               <BrandCard
                 title={""}
@@ -633,7 +614,6 @@ function App() {
         <div class="container p-4">
           <Row className="p-3 justify-content-start row-gap-3">
             {homeAndDecor.map((item, index) => {
-              console.log(item)
               return (
                 <Col
                   lg={2}

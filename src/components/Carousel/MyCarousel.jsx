@@ -125,7 +125,11 @@ const MyCarousel = ({ data, lg, md, sm ,bg }) => {
       >
         {data.map((item, index) => {
           return (
-            <Card className="mx-2 py-1 slider" key={index}>
+            <Card
+              className="mx-2 pt-1 slider"
+              key={index}
+              style={{ minHeight: "320px" }}
+            >
               <Card.Img variant="top" className="img-fluid" src={item.img} />
               <Card.Body className="px-2">
                 <Rating

@@ -6,7 +6,7 @@ const NewCards = ({ title, imgUrl, price, index }) => {
   console.log(title,index)
   return (
     <>
-      <Card className="mx-2 py-1 slider" key={index}>
+      <Card className="mx-1 py-1 slider" key={index} style={{minHeight : "320px"}}>
         <Card.Img variant="top" className="img-fluid" src={imgUrl} />
         <Card.Body className="px-2">
           <Rating name="simple-controlled" value={0} size="small" readOnly />
